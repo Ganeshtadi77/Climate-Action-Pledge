@@ -57,4 +57,3 @@ Role: Web Developer Intern
 Applicant Task: Chennai – Web Developer Internship Task
 Developer Information
 
-Name: Sai Ganesh Tadi Role: Web Developer Intern Applicant Task: Chennai – Web Developer Internship Task
