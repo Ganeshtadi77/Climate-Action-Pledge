@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Climate Action Pledge</title>
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">🌿 Climate Pledge</div>
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#form-section">Take Pledge</a></li>
+      <li><a href="#pledgeWall">Pledge Wall</a></li>
+    </ul>
+  </nav>
+
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1>Join the Climate Action Pledge</h1>
+      <p>Together we can make our planet greener and cleaner.</p>
+      <button onclick="scrollToForm()">Take the Pledge</button>
+    </div>
+  </section>
+  <section id="kpi">
+    <h2>Live Pledge Statistics</h2>
+    <div class="stats">
+      <div>Target Pledges: <span id="target">1,000,000</span></div>
+      <div>Achieved Pledges: <span id="achieved">0</span></div>
+      <div>Students: <span id="students">0</span></div>
+      <div>Professionals: <span id="professionals">0</span></div>
+    </div>
+  </section>
+
+  <section id="why">
+    <h2>Why Take Climate Action?</h2>
+    <p>Every person can make a difference. Taking a pledge shows your commitment to a sustainable future for everyone.
+    </p>
+  </section>
+
+  <section id="form-section">
+    <h2>Take the Pledge</h2>
+    <form id="pledgeForm">
+      <input type="text" id="name" placeholder="Full Name" required/>
+      <input type="email" id="email" placeholder="Email ( for validation)" required/>
+      <input type="tel" id="mobile" placeholder="Mobile Number"  maxlength="10" pattern="[0-9]{10}" required/>
+
+      <p class="privacy-form-note">
+        <small>⚠️ Mobile Number and Email are  for validation but never shown publicly. [cite: 50]</small>
+      </p>
+      <input type="text" id="state" placeholder="State" required/>
+      <select id="profile" required>
+        <option value="Student">Student</option>
+        <option value="Professional">Working Professional</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <h3>Your Commitments (Select at least one)</h3>
+
+      <h4>Theme 1: Responsible Consumption</h4>
+      <label><input type="checkbox" name="commitment" value="Reduce Food Waste" /> Reduce Food Waste</label>
+      <label><input type="checkbox" name="commitment" value="Shop Sustainably" /> Shop Sustainably</label>
+      <label><input type="checkbox" name="commitment" value="Repair before replacing" /> Repair before replacing</label>
+
+      <h4>Theme 2: Energy & Travel</h4>
+      <label><input type="checkbox" name="commitment" value="Save Energy at Home" /> Save Energy at Home</label>
+      <label><input type="checkbox" name="commitment" value="Use Public Transport" /> Use Public Transport</label>
+      <label><input type="checkbox" name="commitment" value="Unplug Electronics" /> Unplug Electronics</label>
+
+      <h4>Theme 3: Nature & Advocacy</h4>
+      <label><input type="checkbox" name="commitment" value="Plant Trees" /> Plant Trees</label>
+      <label><input type="checkbox" name="commitment" value="Reduce Single-Use Plastic" /> Reduce Single-Use
+        Plastic</label>
+      <label><input type="checkbox" name="commitment" value="Talk about Climate Action" /> Talk about Climate
+        Action</label>
+
+      <button type="submit">Submit Pledge</button>
+    </form>
+  </section>
+
+  <section id="certificate" style="display: none;">
+    <div class="certificate-box" id="certBox">
+      <h2>🌿 Certificate of Commitment 🌿</h2>
+      <p id="cert-name"></p>
+      <p>is officially <strong>Cool Enough to Care!</strong></p>
+      <p id="cert-stars"></p>
+    </div>
+    <button id="downloadBtn">Download Certificate</button>
+  </section>
+
+  <section id="pledgeWall">
+    <h2>Public Pledge Wall</h2>
+    <table id="pledgeTable" border="1">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Date</th>
+        <th>State</th>
+        <th>Profile</th>
+        <th>⭐ Commitments</th>
+      </tr>
+    </table>
+  </section>
+
+
+  <footer>
+    <p><strong>Privacy Note:</strong> Mobile Number and Email are used only for verification and not shown publicly.</p>
+  </footer>
+
+  <script src="scp.js"></script>
+</body>
+
+</html>

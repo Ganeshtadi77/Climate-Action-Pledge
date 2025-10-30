@@ -1,0 +1,527 @@
+/* Base Styles */
+:root {
+    --primary-color: #28a745; /* A fresh green */
+    --secondary-color: #1e7e34; /* Darker green */
+    --text-color: #333;
+    --light-bg: #f8f9fa;
+    --dark-bg: #e9ecef;
+    --font-stack: 'Poppins', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-stack);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #fff;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    margin-bottom: 0.5em;
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+/* Utility Classes */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* --- Navigation --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color);
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--dark-bg);
+}
+
+/* Mobile Navigation adjustments (hide list by default on small screens) */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+    }
+}
+
+/* --- Sections --- */
+section {
+    padding: 40px 20px;
+    margin: 20px 0;
+}
+
+#why, #form-section {
+    background-color: var(--light-bg);
+    border-radius: 8px;
+    padding: 40px 20px;
+}
+
+/* --- Hero Section --- */
+#hero {
+    position: relative;
+    height: 60vh; /* Responsive height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://source.unsplash.com/1600x900/?nature,climate') center/cover no-repeat;
+    filter: brightness(0.5); /* Darken the image for better text readability */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: clamp(2rem, 5vw, 4rem); /* Responsive font size */
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    margin-bottom: 20px;
+}
+
+/* --- KPI Section (Stats) --- */
+#kpi {
+    background-color: var(--dark-bg);
+    padding: 30px 20px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on small screens */
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.stats div {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.stats span {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin-top: 5px;
+}
+
+/* --- Pledge Form --- */
+#form-section {
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+#pledgeForm input[type="text"],
+#pledgeForm input[type="email"],
+#pledgeForm input[type="tel"],
+#pledgeForm select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+#pledgeForm h3, #pledgeForm h4 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: var(--secondary-color);
+}
+
+#pledgeForm label {
+    display: block;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+#pledgeForm input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.privacy-form-note {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #6c757d;
+}
+
+/* --- Buttons --- */
+button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}
+
+#pledgeForm button[type="submit"] {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* --- Pledge Wall (Table) --- */
+#pledgeWall {
+    overflow-x: auto; /* Allows table to scroll horizontally on small screens */
+}
+
+#pledgeTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    min-width: 600px; /* Ensures a minimum readable width for the table */
+}
+
+#pledgeTable th, #pledgeTable td {
+    padding: 12px 8px;
+    text-align: left;
+    border: 1px solid var(--dark-bg);
+}
+
+#pledgeTable th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+#pledgeTable tr:nth-child(even) {
+    background-color: var(--light-bg);
+}
+
+/* --- Certificate Section --- */
+#certificate {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f1f7f1;
+    border: 2px dashed var(--primary-color);
+    margin: 40px auto;
+    max-width: 700px;
+    border-radius: 10px;
+}
+
+.certificate-box {
+    margin-bottom: 20px;
+}
+
+#certBox h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+#certBox p {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+#cert-name {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    text-transform: capitalize;
+}
+
+#cert-stars {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+#downloadBtn {
+    padding: 10px 30px;
+    background-color: #007bff;
+}
+
+#downloadBtn:hover {
+    background-color: #0056b3;
+}
+
+
+/* --- Footer --- */
+footer {
+    background-color: #343a40;
+    color: #fff;
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries for Larger Screens (Tablet and Desktop) --- */
+@media (min-width: 768px) {
+    /* Navigation: Show full menu */
+    nav ul {
+        display: flex;
+    }
+    
+    /* Typography adjustments */
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    /* KPI Section: 4 columns on larger screens */
+    .stats {
+        grid-template-columns: repeat(4, 1fr);
+        padding: 0 40px;
+    }
+
+    .stats div {
+        padding: 20px;
+        font-size: 1.1rem;
+    }
+
+    .stats span {
+        font-size: 2rem;
+    }
+
+    /* General Section Padding */
+    section {
+        padding: 60px 40px;
+    }
+
+    #form-section {
+        padding: 50px;
+    }
+
+    /* Hero Height */
+    #hero {
+        height: 80vh;
+    }
+}
+
+/* Media Query for Large Desktops */
+@media (min-width: 1024px) {
+    /* Center the main content */
+    nav, section {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* Ensure content is within a max width */
+    nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 15px 0;
+    }
+
+    nav ul {
+        margin-right: 20px;
+    }
+
+    section:not(#hero) {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* --- UPDATED NAVIGATION & HERO STYLES (Replace existing ones) --- */
+
+/* Base Styles (Ensuring nav links are always visible) */
+:root {
+    --primary-color: #28a745; /* A fresh green */
+    --secondary-color: #1e7e34; /* Darker green */
+    /* ... other variables ... */
+}
+
+/* --- Navigation --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color);
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex; /* Default to flex for desktop/larger screens */
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--dark-bg);
+}
+
+/* --- Hero Section (Background Image) --- */
+#hero {
+    position: relative;
+    /* Adjusted height to be more visually appealing */
+    height: 70vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    /* ADDED DEDICATED BACKGROUND IMAGE HERE */
+    background: url('https://www.hdwallpapers.in/download/beautiful_background_green_river_waterfall_in_kanchanaburi_thailand_4k_hd_nature-HD.jpg') center/cover no-repeat;
+}
+
+/* Updated .hero-bg to just apply the overlay filter */
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Removed image property here and replaced it with a dark overlay */
+    background-color: rgba(0, 0, 0, 0.55); /* Darker overlay for better text contrast */
+    z-index: 1;
+    filter: none; /* Removed filter since we use background-color rgba */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    padding: 20px;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: clamp(1.1rem, 3vw, 1.8rem);
+    margin-bottom: 30px;
+}
+
+/* --- Mobile Responsiveness: Navigation FIX --- */
+/* For smaller screens (under 768px), we'll simplify the nav */
+@media (max-width: 768px) {
+    /* To make the nav bar visible on mobile, we need the links to display inline or stack */
+    nav {
+        flex-direction: column; /* Stack logo and links vertically */
+        align-items: flex-start;
+    }
+
+    .logo {
+        margin-bottom: 10px; /* Space between logo and links */
+    }
+    
+    /* Make the link list visible and stack the links */
+    nav ul {
+        display: flex; 
+        flex-direction: column; /* Stack links vertically */
+        width: 100%;
+        padding-left: 0;
+    }
+
+    nav ul li {
+        margin: 5px 0; /* Vertical margin for stacked links */
+        width: 100%;
+        text-align: center;
+    }
+    
+    nav ul li a {
+        display: block;
+        padding: 5px 0;
+        background-color: var(--secondary-color); /* Add background for better visibility */
+        border-radius: 4px;
+    }
+}
